@@ -1,36 +1,60 @@
 # SwiftPOS
-**Modern Multi-Tenant Point of Sale System**
 
-A comprehensive POS system built with offline-first architecture, real-time capabilities, and multi-tenant data isolation. Designed for retail stores in Fiji with VAT-inclusive pricing and mobile-first responsive design.
+A modern, multi-tenant Point of Sale (POS) system built as a **development template** using hexagonal architecture, TypeScript, and the MERN stack.
+
+## 🎯 Project Overview
+
+SwiftPOS serves as both a functional POS system and a **development template** demonstrating modern software architecture patterns. It showcases best practices for building scalable, maintainable applications with offline-first capabilities and real-time features.
 
 ## 🏗️ Architecture
 
-**Frontend:** React + TypeScript + Vite + shadcn/ui  
-**Backend:** Node.js + Express + TypeScript + MongoDB  
-**Real-time:** WebSocket with Socket.IO  
-**Offline:** Dexie IndexedDB wrapper  
-**Authentication:** JWT with Redis sessions  
-**Architecture Pattern:** Hexagonal Architecture (Ports & Adapters)
+### Hexagonal Architecture (Ports & Adapters)
+```
+domains/
+├── stores/
+│   ├── domain/           # Business entities and rules
+│   ├── application/      
+│   │   ├── ports/        # Interfaces (Repository contracts)
+│   │   └── use-cases/    # Business logic orchestration
+│   └── infrastructure/
+│       ├── primary/      # Controllers, Routes (driving adapters)
+│       └── secondary/    # DB models, Repositories (driven adapters)
+```
 
-## 🚀 Features
+### Tech Stack
+- **Backend**: Node.js, TypeScript, Express.js
+- **Frontend**: React, TypeScript, Vite
+- **Database**: MongoDB with Mongoose ODM  
+- **Cache**: Redis for sessions and real-time data
+- **Real-time**: Socket.IO for WebSocket communication
+- **Offline**: Dexie (IndexedDB) for client-side storage
 
-### Core Functionality
-- **Multi-tenant store management** with complete data isolation
-- **Offline-first POS operations** - works without internet connectivity
-- **Real-time notifications** across devices and users
-- **Role-based access control** (Admin/Manager/Cashier)
-- **Comprehensive product catalog** with categories and variants
-- **Transaction processing** with VAT-inclusive pricing
-- **Inventory management** with stock tracking and movements
-- **Audit logging** for all system operations
+## ✨ Key Features
 
-### Technical Features
-- **WebSocket notifications** with store-scoped channels
-- **Offline sync** with conflict resolution
-- **Optimistic updates** for responsive user experience
-- **Secure authentication** with token blacklisting
-- **Mobile-first responsive design** (mobile → tablet → desktop)
-- **Performance optimized** with proper database indexing
+### Architecture Patterns
+- **Hexagonal Architecture** with ports and adapters
+- **Domain-Driven Design** with rich domain entities
+- **Repository Pattern** for data persistence abstraction
+- **Factory Methods** with business rule validation
+- **Use Case Pattern** for business logic orchestration
+- **Dependency Injection** for loose coupling
+
+### Implemented Features
+- ✅ **Store Registration** with multi-tenant isolation
+- ✅ **Modern Database Connectors** with health monitoring
+- ✅ **RESTful API** with comprehensive error handling
+- ✅ **Configuration Injection** patterns
+- 🚧 **JWT Authentication** with store context
+- 🚧 **WebSocket Integration** for real-time features
+- 🚧 **Complete POS Functionality**
+
+### Development Template Features
+- **Modern TypeScript** patterns and best practices
+- **Hexagonal Architecture** implementation
+- **Multi-tenant SaaS** design patterns
+- **Real-time WebSocket** integration
+- **Offline-first** architecture with sync
+- **Comprehensive error handling** strategies
 
 ## 🛠️ Development Setup
 
